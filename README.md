@@ -10,7 +10,7 @@ This is a demo app that uses React and Flux.
   * Make sure this is installed or Browserify will complain
 * Some of the expected paths aren't included
   * if you want to use that userApi, you'll need the accompanying user data which looks like this:
-  '''javascript
+  ```javascript
   "use strict";
   
   var users = [
@@ -20,7 +20,7 @@ This is a demo app that uses React and Flux.
   module.exports = {
       users: users
   };
-  '''
+  ```
   * you'll also need an images folder, and a dist folder outside of source for the gulpfile to work. just check it out.
 
 ## Dependencies
