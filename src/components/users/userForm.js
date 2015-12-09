@@ -5,6 +5,13 @@ var TextInput = require('../common/textInput');
 var TextMulti = require('../common/textMulti');
 
 
+// TODO:
+// validate min height
+// don't replace image, as you can't set it back when you don't save... maybe a ternary for new url?
+// actual save when you have api going, can make ajax call as in mozilla demo
+// break out the input / button combo into its own component, just get the default and new urls...
+
+
 var UserForm = React.createClass({
    propTypes: {
        user: React.PropTypes.object.isRequired,
@@ -25,12 +32,13 @@ var UserForm = React.createClass({
        return (
          <div>
              <div className="mdl-grid">
-                 <div className="mdl-cell mdl-cell--4-col">
-                     <image src={this.props.user.image} style={styles.imageStyle} />
+                 <div className="mdl-cell mdl-cell--4-col" style={styles.rel}>
+                     <img src={this.props.user.image} style={styles.imageStyle} />
                      <input type="file" onChange={this.props.onFile} style={styles.hiddenUpload} id="hdnUpload" />
-                     <button onClick={this.snagFile}
-                             className="mdl-button mdl-js-button mdl-button--primary">
-                         Upload
+                     <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+                             style={styles.fab}
+                             onClick={this.snagFile}>
+                         <i className="material-icons">image</i>
                      </button>
                  </div>
                  <div className="mdl-cell mdl-cell--8-col">
@@ -75,10 +83,20 @@ var UserForm = React.createClass({
 
 var styles = {
     imageStyle: {
-        width: "100%"
+        maxWidth: "100%"
     },
     hiddenUpload: {
         display: 'none'
+    },
+
+    fab: {
+        position: 'absolute',
+        left: '25px',
+        bottom: '-25px'
+    },
+
+    rel : {
+        position: 'relative'
     }
 };
 
