@@ -1,0 +1,10 @@
+.spinny {
+    transition: .2s ease all !important;
+    -webkit-transition: .2s ease all !important;
+}
+
+.spinny:hover {
+    transform: rotate(225deg) !important;
+    -webkit-transform: rotate(225deg) !important;
+}
+

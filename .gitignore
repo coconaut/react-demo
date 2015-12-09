@@ -1,0 +1,7 @@
+.idea
+node_modules
+# for now ignore dist, don't want anyone else's bundles up...
+dist
+# ignore user data because it has names...
+src/api/userData.js
+
