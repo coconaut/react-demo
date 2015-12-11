@@ -4,7 +4,8 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var History = ReactRouter.History;
 var HeaderActions = require('../../actions/headerActions');
-var UserForm = require('./userForm');
+var UserEditForms = require('./userEditForms');
+var UserForm = UserEditForms.UserForm;
 var UserStore = require('../../stores/userStore');
 var UserActions = require('../../actions/userActions');
 
@@ -28,6 +29,7 @@ var UserDetailsPage = React.createClass({
                 image: ''
             },
             errors: {},
+            origImage: '',
             newFile: null
         };
     },
@@ -36,8 +38,10 @@ var UserDetailsPage = React.createClass({
         var userId = this.props.params.id;
         if (userId && userId > 0) {
             var u = UserStore.getUserById(userId);
+            var oi = u.image;
             u.image = IMAGE_PATH + u.image;
-            this.setState({user: u});
+
+            this.setState({user: u, origImage: oi});
         }
     },
     userFormIsValid: function () {
@@ -89,6 +93,8 @@ var UserDetailsPage = React.createClass({
             return;
         }
         // need to deal with file! save and change path to just name...
+        // for now, just going back to old image
+        this.state.user.image = this.state.origImage;
 
         // save through actions
         UserActions.updateUser(this.state.user);
