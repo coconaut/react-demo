@@ -60,6 +60,12 @@ Dispatcher.register(function(action) {
             UserStore.emitChange();
             break;
 
+        case ActionTypes.ADD_USER:
+            debugger;
+            _users.push(action.user);
+            UserStore.emitChange();
+            break;
+
         default:
             // no op
     }

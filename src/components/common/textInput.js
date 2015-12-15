@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 
 var TextInput = React.createClass({
@@ -9,7 +10,8 @@ var TextInput = React.createClass({
         onChange: React.PropTypes.func.isRequired,
         label: React.PropTypes.string.isRequired,
         value: React.PropTypes.string,
-        error: React.PropTypes.string
+        error: React.PropTypes.string,
+        setFocus: React.PropTypes.bool
     },
     render: function() {
         var wrapperClass = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label";
@@ -34,9 +36,10 @@ var TextInput = React.createClass({
                          type="text"
                          name={this.props.name}
                          id={this.props.name + '_text'}
-                         ref={this.props.name}
+                         ref="mainTextInput"
                          value={this.props.value}
                          onChange={this.props.onChange}
+
                       />
                   <label className={labelClass}
                          htmlFor={this.props.name + '_text'}>

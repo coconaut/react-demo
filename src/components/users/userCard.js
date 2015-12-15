@@ -13,6 +13,9 @@ var UserCard = React.createClass({
         user: React.PropTypes.object.isRequired
     },
     getBGStyle: function(user) {
+        if (!user.image || user.image == '') {
+            user.image = 'noImage.jpg';
+        }
         var style = "url(" + IMAGE_PATH + user.image + ")";
         return style;
     },

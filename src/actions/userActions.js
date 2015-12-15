@@ -25,7 +25,6 @@ var UserActions = {
 
     saveUser: function(user) {
         var newUser = UserApi.saveUser(user);
-
         Dispatcher.dispatch({
             actionType: ActionTypes.ADD_USER,
             user: newUser

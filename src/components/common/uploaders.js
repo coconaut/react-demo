@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Fab = require('./fab');
+const IMAGE_PATH = "../images/";
 
 // file upload with img and set style for fab placement
 var PreviewablePicUpload = React.createClass({
@@ -18,10 +19,18 @@ var PreviewablePicUpload = React.createClass({
             hdnUpload.click();
         }
     },
+    getImgSrc: function () {
+        var src = IMAGE_PATH + 'noImage.jpg';
+        if (this.props.imgSource && this.props.imgSource != "") {
+            src = this.props.imgSource;
+        }
+        return src;
+    },
     render: function () {
         return (
+
             <div style={styles.rel}>
-                <img src={this.props.imgSource} style={styles.imageStyle}/>
+                <img src={this.getImgSrc()} style={styles.imageStyle}/>
                 <input type="file"
                        onChange={this.props.onFile}
                        style={styles.hiddenUpload}
@@ -30,8 +39,10 @@ var PreviewablePicUpload = React.createClass({
                     icon="image"
                     onClick={this.snagFile}
                     fabStyle="inABoxL"
+                    mini={true}
                     />
             </div>
+
         );
     }
 });
@@ -44,7 +55,8 @@ var styles = {
         display: 'none'
     },
     rel: {
-        position: 'relative'
+        position: 'relative',
+        minHeight: '200px'
     }
 };
 

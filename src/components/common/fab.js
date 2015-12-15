@@ -6,7 +6,8 @@ var Fab = React.createClass({
     propTypes: {
         icon: React.PropTypes.string.isRequired,
         onClick: React.PropTypes.func.isRequired,
-        fabStyle: React.PropTypes.string.isRequired
+        fabStyle: React.PropTypes.string.isRequired,
+        mini: React.PropTypes.bool
     },
     getStyle: function () {
         var s;
@@ -27,8 +28,12 @@ var Fab = React.createClass({
         return s;
     },
     render: function () {
+        var buttonClass = "mdl-button mdl-js-button mdl-button--fab mdl-button--colored";
+        if (this.props.mini) {
+            buttonClass += " mdl-button--mini-fab";
+        }
         return (
-            <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+            <button className={buttonClass}
                     style={this.getStyle()}
                     onClick={this.props.onClick}>
                 <i className="material-icons">{this.props.icon}</i>

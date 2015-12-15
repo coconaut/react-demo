@@ -80,6 +80,17 @@ var Drawer = React.createClass({
                         </i>
                         Users
                     </Link>
+                    <Link className={linkClass} to="">
+                        <i
+                            className="material-icons"
+                            role="presentation"
+                            style={styles.marginR}
+                            >
+                            assignment
+                        </i>
+                        Orders
+                    </Link>
+
                 </nav>
             </div>
         );
