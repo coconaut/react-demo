@@ -52,7 +52,7 @@ const fabStyles = {
         marginBottom: '60px',
         paddingTop: '24px',
         position: 'fixed',
-        right: '150px',
+        right: '5%',
         zIndex: '998'
     },
     inABoxL: {

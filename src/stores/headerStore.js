@@ -9,7 +9,7 @@ var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 var _pageTitle = "Main"; // default page title
 
-var TitleStore = assign({}, EventEmitter.prototype, {
+var HeaderStore = assign({}, EventEmitter.prototype, {
 
     // this will allow components to register to this store's changes
     addChangeListener: function(callback) {
@@ -35,15 +35,15 @@ Dispatcher.register(function(action) {
    switch(action.actionType){
        case ActionTypes.INITIALIZE:
            _pageTitle = action.initialData.pageTitle;
-           TitleStore.emitChange();
+           HeaderStore.emitChange();
            break;
        case ActionTypes.UPDATE_PAGE_TITLE:
            _pageTitle = action.pageTitle;
-           TitleStore.emitChange();
+           HeaderStore.emitChange();
            break;
        default:
            // no op
    }
 });
 
-module.exports = TitleStore;
+module.exports = HeaderStore;

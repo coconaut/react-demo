@@ -61,8 +61,12 @@ Dispatcher.register(function(action) {
             break;
 
         case ActionTypes.ADD_USER:
-            debugger;
             _users.push(action.user);
+            UserStore.emitChange();
+            break;
+
+        case ActionTypes.SEARCH_USERS:
+            _users = action.users;
             UserStore.emitChange();
             break;
 

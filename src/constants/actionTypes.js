@@ -8,6 +8,7 @@ var actionTypes = keyMirror({
     UPDATE_USER: null,
     DELETE_USER: null,
     ADD_USER: null,
+    SEARCH_USERS: null,
 });
 
 module.exports = actionTypes;

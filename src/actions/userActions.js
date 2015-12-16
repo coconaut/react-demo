@@ -30,6 +30,14 @@ var UserActions = {
             user: newUser
         });
     },
+
+    searchUsers: function(searchFields) {
+        var filteredUsers = UserApi.searchUsers(searchFields);
+        Dispatcher.dispatch({
+           actionType: ActionTypes.SEARCH_USERS,
+            users: filteredUsers
+        });
+    }
 };
 
 module.exports = UserActions;

@@ -6,6 +6,7 @@ var UserStore = require('../../stores/userStore');
 var UserModal = require('./userModal');
 var HeaderActions = require('../../actions/headerActions');
 var Fab = require('../common/fab');
+var UserSearchPanel = require('./userSearch');
 
 
 // do a search filter deal...
@@ -21,6 +22,10 @@ var Fab = require('../common/fab');
 
 
 const PAGE_TITLE = "Manage Users";
+
+
+// TODO: may want to split out the grid from the page...
+// have page = search, grid, fab, modal
 
 var UsersPage = React.createClass({
     getInitialState: function () {
@@ -58,15 +63,14 @@ var UsersPage = React.createClass({
 
     createUserCell: function (user) {
         return (
-            <div className="mdl-cell mdl-cell--4-col" key={user.id}>
-                <UserCard user={user}/>
-            </div>
+            <UserCard user={user} key={user.id}/>
         );
     },
 
     render: function () {
         return (
             <div>
+                <UserSearchPanel />
                 <div className="mdl-grid">
                     {this.state.users.map(this.createUserCell, this)}
                 </div>

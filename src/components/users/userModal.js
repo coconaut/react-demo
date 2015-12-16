@@ -17,7 +17,7 @@ var UserModal = React.createClass({
                 onRequestClose={this.props.closeModal}
                 style={styles.modalCustom}>
                 <div>
-                    <button className="mdl-button mdl-js-button mdl-button--accent  mdl-button--icon"
+                    <button className="mdl-button mdl-js-button mdl-button--accent mdl-button--icon"
                             style={styles.floatR}
                             onClick={this.props.closeModal}>
                         <i className="material-icons">close</i>
@@ -49,7 +49,7 @@ const styles = {
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 200,
-            border: '1px solid re'
+            padding: "10px"
         }
     },
     floatR: {

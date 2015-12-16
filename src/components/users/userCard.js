@@ -40,7 +40,8 @@ var UserCard = React.createClass({
     },
     render: function() {
         return (
-            <div className="mdl-card mdl-shadow--2dp" style={{width: "350px", height: "350px"}}>
+            <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp"
+                 style={{height: "350px", maxWidth: "350px"}}>
                 <div className="mdl-card__title mdl-card--expand" style={this.getStyle(this.props.user)}>
                     <h2 className="mdl-card__title-text" style={{color: "#FFFFFF", backgroundColor: "rgba(0,0,0,0.4)" }}>{this.formatName(this.props.user)}</h2>
                 </div>
