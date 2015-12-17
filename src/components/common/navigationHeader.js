@@ -67,14 +67,6 @@ var Drawer = React.createClass({
                         </i>
                         Home
                     </Link>
-                    <Link className={linkClass} to="/test">
-                        <i className="material-icons"
-                           role="presentation"
-                            style={styles.marginR}>
-                            airline_seat_recline_extra
-                            </i>
-                        Test
-                    </Link>
                     <Link className={linkClass} to="/users">
                         <i
                             className="material-icons"
@@ -84,7 +76,7 @@ var Drawer = React.createClass({
                         </i>
                         Users
                     </Link>
-                    <Link className={linkClass} to="">
+                    <Link className={linkClass} to="orders">
                         <i
                             className="material-icons"
                             role="presentation"
@@ -94,7 +86,14 @@ var Drawer = React.createClass({
                         </i>
                         Orders
                     </Link>
-
+                    <Link className={linkClass} to="/test">
+                        <i className="material-icons"
+                           role="presentation"
+                           style={styles.marginR}>
+                            airline_seat_recline_extra
+                        </i>
+                        Test
+                    </Link>
                 </nav>
             </div>
         );

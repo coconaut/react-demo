@@ -14,7 +14,7 @@ var Home = require('./components/homePage');
 var Test = require('./components/test');
 var UsersPage = require('./components/users/usersPage');
 var UserDetailsPage = require('./components/users/userDetailsPage');
-
+var OrdersPage = require('./components/orders/ordersPage');
 
 // routes should nest under app -> they'll be rendered in main.js
 var routes = (
@@ -23,6 +23,7 @@ var routes = (
         <Route path="test" component={Test} />
         <Route path="users" component={UsersPage} />
         <Route path="users/:id" component={UserDetailsPage} />
+        <Route path="orders" component={OrdersPage} />
     </Route>
 );
 

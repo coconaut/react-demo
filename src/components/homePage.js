@@ -14,7 +14,6 @@ var Home = React.createClass({
          <div>
             This is the Home Page!
              <br />
-             Check out users maybe?
          </div>
        );
    }
