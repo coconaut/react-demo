@@ -35,6 +35,7 @@ var UserApi = {
             //The server would generate ids for new users in a real app.
             //Cloning so copy returned is passed by value rather than by reference.
             user.id = _generateId(user);
+            user.dateCreated = JSON.parse(JSON.stringify(new Date()));
             users.push(user);
         }
 
@@ -50,18 +51,34 @@ var UserApi = {
         console.log('Pretend this hit the API with some search fields...');
 
         // make sure we had a search
-        if (!searchFields || !searchFields.nameOfUser || searchFields.nameOfUser == ""){
-            return this.getAllUsers();
-        }
+        //if (!searchFields || !searchFields.nameOfUser || searchFields.nameOfUser == "") {
+        //    return this.getAllUsers();
+        //}
 
         // filter on name
-        var filteredUsers = _.filter(users, function(u){
-            return _.startsWith(u.firstName, searchFields.nameOfUser) ||
-                    _.startsWith(u.lastName, searchFields.nameOfUser);
+        var filteredUsers = _.filter(users, function (u) {
+            return (!searchFields.nameOfUser) ||
+                searchFields.nameOfUser == "" ||
+                _.startsWith(u.firstName, searchFields.nameOfUser) ||
+                _.startsWith(u.lastName, searchFields.nameOfUser);
         });
 
+
+        // filter on dateCreated
+        var filteredByStartDate = _.filter(filteredUsers, function (u) {
+            return (!searchFields.startDate) || (searchFields.startDate == "") ||
+                Date.parse(searchFields.startDate) <= Date.parse(u.dateCreated);
+        });
+
+        var filteredByEndDate = _.filter(filteredByStartDate, function (u) {
+            return (!searchFields.endDate) || (searchFields.endDate == "") ||
+                Date.parse(searchFields.endDate) >= Date.parse(u.dateCreated);
+        });
+
+
+
         // just cloning so we don't return by ref
-        return _.clone(filteredUsers, true);
+        return _.clone(filteredByEndDate, true);
     }
 };
 

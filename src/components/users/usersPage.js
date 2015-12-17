@@ -9,17 +9,6 @@ var Fab = require('../common/fab');
 var UserSearchPanel = require('./userSearch');
 
 
-// do a search filter deal...
-// spinner for loading
-// maybe a default field (name), then advanced?
-// add a date field to users...
-// paging
-
-
-// then we need an order-pad type example...
-
-// login
-
 
 const PAGE_TITLE = "Manage Users";
 

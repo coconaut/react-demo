@@ -12,7 +12,7 @@ var UserCard = React.createClass({
     propTypes: {
         user: React.PropTypes.object.isRequired
     },
-    getBGStyle: function(user) {
+    getBGStyle: function (user) {
         if (!user.image || user.image == '') {
             user.image = 'noImage.jpg';
         }
@@ -20,7 +20,7 @@ var UserCard = React.createClass({
         return style;
     },
 
-    getStyle: function(user) {
+    getStyle: function (user) {
         return {
             background: this.getBGStyle(user),
             backgroundSize: "cover",
@@ -28,25 +28,32 @@ var UserCard = React.createClass({
             paddingTop: "5px",
         }
     },
-    onDelete: function(id, event) {
+    onDelete: function (id, event) {
         event.preventDefault();
-        if(confirm('Are you sure you want to delete this user?')) {
+        if (confirm('Are you sure you want to delete this user?')) {
             console.log('delete triggered');
             UserActions.deleteUser(id);
         }
     },
-    formatName: function(user) {
+    formatName: function (user) {
         return user.firstName + " " + user.lastName;
     },
-    render: function() {
+    formatDate: function (user) {
+        return user.dateCreated.split("T")[0];
+    },
+    render: function () {
         return (
-            <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp"
-                 style={{height: "350px", maxWidth: "350px"}}>
+            <div
+                className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp"
+                style={{height: "350px", maxWidth: "350px"}}>
                 <div className="mdl-card__title mdl-card--expand" style={this.getStyle(this.props.user)}>
-                    <h2 className="mdl-card__title-text" style={{color: "#FFFFFF", backgroundColor: "rgba(0,0,0,0.4)" }}>{this.formatName(this.props.user)}</h2>
+                    <h2 className="mdl-card__title-text"
+                        style={{color: "#FFFFFF", backgroundColor: "rgba(0,0,0,0.4)" }}>{this.formatName(this.props.user)}</h2>
                 </div>
                 <div className="mdl-card__supporting-text">
                     {this.props.user.description}
+                    <br />
+                    <em>Created: {this.formatDate(this.props.user)}</em>
                 </div>
                 <div className="mdl-card__actions mdl-card--border">
                     <LinkButton
@@ -54,9 +61,9 @@ var UserCard = React.createClass({
                         raised={false}
                         route={`/users/${this.props.user.id}`}
                         text="Edit"
-                    />
+                        />
                     <button className="mdl-button mdl-js-button mdl-button--primary"
-                        onClick={this.onDelete.bind(this, this.props.user.id)}>
+                            onClick={this.onDelete.bind(this, this.props.user.id)}>
                         Delete
                     </button>
                 </div>

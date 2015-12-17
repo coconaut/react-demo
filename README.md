@@ -37,5 +37,18 @@ This is a demo app that uses React and Flux.
 * Material Design Lite
 * Lodash
 * History
+* Moment
 * TODO: finish///
+
+## TODO
+* date picker and search
+* paging
+* search from header, or nice UI panel
+* spinner for loading?
+* maybe a default field (name), then advanced?
+* then we need an order-pad type example...
+* login
+* real api / server
+* use browser history routing
+* save pic uploads
 

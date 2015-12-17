@@ -22,6 +22,7 @@ var config = {
         css: [
             './src/extra.css',
             './node_modules/material-design-lite/dist/material.blue_grey-pink.min.css',
+            './node_modules/react-datepicker/dist/react-datepicker.min.css',
         ],
         dist: './dist',
         mainJs: './src/main.js'
